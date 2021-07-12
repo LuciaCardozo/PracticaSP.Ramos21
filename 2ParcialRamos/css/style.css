@@ -216,13 +216,6 @@ cursor: pointer;
 color:rgb(180, 148, 88);
 }
 
-.styleBtn{
-    background-color:"red";
-    color:"white";
-    border:"none";
-    border-radius:"10px";
-}
-
 tr:nth-child(odd){
     background-color: rgb(99, 183, 189);
 }
