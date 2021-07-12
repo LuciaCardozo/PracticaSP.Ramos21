@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/manejadora.js"></script>
+    <script src="./js/tabla.js"></script>
+    <script src="./js/vehiculo.js"></script>
+    <script src="./js/camioneta.js"></script>
+    <script src="./js/auto.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="divPopup" id="divPopup" style="visibility: hidden;">
+        <div class="popup">
+            <div class="divCerrar">
+                <h1>Alta Vehiculo</h1>
+                <button id="btnCerrar" onclick="cerrarPopUp()">X</button>
+            </div>
+            <form class="divFormulario">
+                <label>Marca: </label><input type="text" id="inputMarca" required>
+                <label>Modelo: </label><input type="text" id="inputModelo" required>
+                <label>Precio: </label><input type="number" id="inputPrecio" required>
+                <label>Tipo:</label><select name="" id="select" onchange="cambiarTipo()">
+                    <option value="Camioneta">Camioneta</option>
+                    <option value="Auto">Auto</option>
+                </select>
+                <div class="divCamioneta" id="divCamioneta">
+                    <label>4x4: </label>
+                    <label>Si</label><input type="radio" name="cuatroXcuatro" value="Si" checked>
+                    <label>No</label><input type="radio" name="cuatroXcuatro" value="No">
+                </div>
+                <div class="divAuto" id="divAuto" style="display: none;">
+                    <label>Cantidad de puertas: </label>
+                    <label>3</label><input type="radio" name="cantPuertas" value="3" checked>
+                    <label>5</label><input type="radio" name="cantPuertas" value="5">
+                </div>
+            </form>
+            <div class="divAgregar">
+                <button class="btnAgregar" id="btnAgregar">Agregar</button>
+            </div>
+        </div>
+    </div>
+    <div class="divContainerPrincipal">
+        <div class="divBoton">
+            <button onclick="abrirPopUp()">Alta</button>
+        </div>
+        <hr>
+        <h1>Filtros</h1>
+        <hr>
+        <div class="divFiltro">
+            <label>Filtrar por:</label>
+            <select name="" id="selectVehiculo" onchange="mostrarSeleccionados()">
+                <option value="Auto">Auto</option>
+                <option value="Camioneta">Camioneta</option>
+            </select>
+            <label>Promedio de precio:</label><input type="number" id="inputPromedio" disabled>
+            <button id="calculaPromedio" onclick="calcularPromedio()">Calcular Promedio</button>
+        </div>
+        <div class="divCheck">
+            <h1>Campos mostrados</h1>
+            <h2>Tildar los campos a mostrar</h2>
+            <hr>
+            <input type="checkbox" id="id" name="check" onclick="mostrarSeleccionados()"><label>Id</label>
+            <input type="checkbox" id="marca" name="check" onclick="mostrarSeleccionados()"><label>Marca</label>
+            <input type="checkbox" id="modelo" name="check" onclick="mostrarSeleccionados()"><label>Modelo</label>
+            <input type="checkbox" id="precio" name="check" onclick="mostrarSeleccionados()"><label>Precio</label>
+            <input type="checkbox" id="accion" name="check" onclick="mostrarSeleccionados()"><label>Accion</label>
+            <hr>
+        </div>
+        <div class="table">  
+            <h1 style="text-align: center;">Lista de Vehiculos</h1>
+            <hr>
+            <section class="divContainer">
+                <div id="divTabla"></div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
